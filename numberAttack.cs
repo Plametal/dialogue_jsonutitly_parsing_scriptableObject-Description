@@ -4,6 +4,9 @@ public class numberAttack : MonoBehaviour
 {
     public static numberAttack instance;
     public int[] setNum;
+    public GameObject ball;
+    //볼이 안에 있을 구역을 정한다
+    [SerializeField] private GameObject line;
 
     void Awake()
     {
@@ -44,6 +47,15 @@ public class numberAttack : MonoBehaviour
                 setNum[i] = Random.Range(0, 30);
         }    
         
+    }
+
+    private void summonBall()
+    {
+        for(int i = 0; i < setNum.Length; i++)
+        {
+            GameObject Instantiate_ball = Instantiate(ball, (-line.position.x, line.position.y));
+            Instantiate_ball.size = Random.Range(0.5, 1.5);
+        }
     }
     
 }

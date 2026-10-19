@@ -18,8 +18,19 @@ public class numberAttackEvent : MonoBehaviour, IPointerClickHandler, IPointerDo
         }
     }
 
-    public void clickedBall()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        
+        if(eventData == numberAttack.instance.ball)
+        {
+            eventData.gameObject.setActive(false);
+        }
+
+        else
+        {
+            break;
+        }
     }
+    
+        
+    
 }
