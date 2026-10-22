@@ -3,6 +3,100 @@
     "currentActivation" : "",
     "playerPos"  :  "",
     "currentDialogue" : "",
-    "currentSelectio":"",
-    "noteContent": ""
+    "currentSelection":"",
+    "noteContent": "",
+    "graph": {
+        "dialogueId": "cafe_intro",
+        "stringTable": "DialogueText",
+        "entryNodeId": "start",
+        "nodes": [
+            {
+                "nodeId": "start",
+                "type": 0,
+                "speakerId": "barista",
+                "speakerSlot": 0,
+                "textKey": "cafe.intro.greeting",
+                "portraitId": "barista_default",
+                "emotionId": "smile",
+                "nextNodeId": "ask_drink",
+                "choices": [],
+                "branches": [],
+                "commands": [],
+                "editorPosition": {"x": 0.0, "y": 0.0}
+            },
+            {
+                "nodeId": "ask_drink",
+                "type": 1,
+                "speakerId": "barista",
+                "speakerSlot": 0,
+                "textKey": "cafe.intro.ask_drink",
+                "portraitId": "barista_default",
+                "emotionId": "neutral",
+                "nextNodeId": "",
+                "choices": [
+                    {
+                        "choiceId": "choose_coffee",
+                        "textKey": "cafe.choice.coffee",
+                        "targetNodeId": "coffee_reply",
+                        "unavailableMode": 0,
+                        "conditions": [],
+                        "effects": []
+                    },
+                    {
+                        "choiceId": "choose_tea",
+                        "textKey": "cafe.choice.tea",
+                        "targetNodeId": "tea_reply",
+                        "unavailableMode": 0,
+                        "conditions": [],
+                        "effects": []
+                    }
+                ],
+                "branches": [],
+                "commands": [],
+                "editorPosition": {"x": 250.0, "y": 0.0}
+            },
+            {
+                "nodeId": "coffee_reply",
+                "type": 0,
+                "speakerId": "player",
+                "speakerSlot": 1,
+                "textKey": "cafe.reply.coffee",
+                "portraitId": "",
+                "emotionId": "",
+                "nextNodeId": "end",
+                "choices": [],
+                "branches": [],
+                "commands": [],
+                "editorPosition": {"x": 500.0, "y": -100.0}
+            },
+            {
+                "nodeId": "tea_reply",
+                "type": 0,
+                "speakerId": "player",
+                "speakerSlot": 1,
+                "textKey": "cafe.reply.tea",
+                "portraitId": "",
+                "emotionId": "",
+                "nextNodeId": "end",
+                "choices": [],
+                "branches": [],
+                "commands": [],
+                "editorPosition": {"x": 500.0, "y": 100.0}
+            },
+            {
+                "nodeId": "end",
+                "type": 4,
+                "speakerId": "",
+                "speakerSlot": 2,
+                "textKey": "",
+                "portraitId": "",
+                "emotionId": "",
+                "nextNodeId": "",
+                "choices": [],
+                "branches": [],
+                "commands": [],
+                "editorPosition": {"x": 750.0, "y": 0.0}
+            }
+        ]
+    }
 }
