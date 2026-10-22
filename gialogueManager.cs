@@ -53,16 +53,16 @@ public sealed class DialogueGraphData
 [Serializable]
 public sealed class DialogueNodeData
 {
-    public string nodeId;
-    public DialogueNodeType type;
+    public string nodeId; //노드에서 텍스트 위치
+    public DialogueNodeType type; //현재 노트 종류
 
-    public string speakerId;
+    public string speakerId; //해당 노드를 말하는 화자
     public DialogueSpeakerSlot speakerSlot;
-    public string textKey;
-    public string portraitId;
-    public string emotionId;
+    public string textKey; //해당하는 문장
+    public string portraitId; //초상화 부분
+    public string emotionId; //감정표현 부분
 
-    public string nextNodeId;
+    public string nextNodeId; //현재 노드에서 브랜치 등으로 다음으로 이동할 노드를 확인
     public List<DialogueChoiceData> choices = new();
     public List<DialogueBranchData> branches = new();
     public List<DialogueCommandData> commands = new();
@@ -73,10 +73,10 @@ public sealed class DialogueNodeData
 [Serializable]
 public sealed class DialogueChoiceData
 {
-    public string choiceId;
-    public string textKey;
-    public string targetNodeId;
-    public UnavailableChoiceMode unavailableMode;
+    public string choiceId; //choice노드에서 선택한 선택지
+    public string textKey; //해당 선택된 부분의 텍스트
+    public string targetNodeId; //choice에 의해 그 다음 정해진 노드
+    public UnavailableChoiceMode unavailableMode; //해당 선택지를 보여줄 지 판단
     public List<DialogueConditionData> conditions = new();
     public List<DialogueEffectData> effects = new();
 }
@@ -84,15 +84,15 @@ public sealed class DialogueChoiceData
 [Serializable]
 public sealed class DialogueBranchData
 {
-    public string targetNodeId;
+    public string targetNodeId; //브랜치에서 다음으로 이동할 노드를 확인
     public List<DialogueConditionData> conditions = new();
 }
 
 [Serializable]
 public sealed class DialogueCommandData
 {
-    public DialogueCommandTiming timing;
-    public string commandId;
+    public DialogueCommandTiming timing; 
+    public string commandId; //어떤 커맨드를 실행할지
     public string argument;
     public float number;
 }
