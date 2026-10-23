@@ -7,11 +7,11 @@ public class numberAttackEvent : MonoBehaviour
 {
     public static makeDinner instance;
     //이게 움직이는 빨간바
-    public gameObject gaugeBar;
+    [SerializeField]private gameObject gaugeBar;
     //이게 바가 움직일 동선
     public slider sliderBar;
     //여기 collision됐을 때, 성공할 수 있게
-    public RigidBody2D timingBar;
+    [SerializeField]private RigidBody2D timingBar;
     private float moveSpeed;
     private Vector2 moveDirection;
 

@@ -51,6 +51,22 @@ public sealed class DialogueGraphData
 }
 
 [Serializable]
+public sealed class playerSetting
+{
+    public int maxActivation;
+    public int currentActivation;
+    public (float x, float y) playerPos;
+
+}
+
+[Serializable]
+public sealed class noteContent
+{
+    public string noteContent;
+    public int noteId;
+
+}
+[Serializable]
 public sealed class DialogueNodeData
 {
     public string nodeId; //노드에서 텍스트 위치

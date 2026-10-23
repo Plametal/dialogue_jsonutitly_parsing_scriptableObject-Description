@@ -5,6 +5,7 @@
     "currentDialogue" : "",
     "currentSelection":"",
     "noteContent": "",
+    "noteId":"",
     "graph": {
         "dialogueId": "cafe_intro",
         "stringTable": "DialogueText",

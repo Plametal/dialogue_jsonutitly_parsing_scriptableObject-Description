@@ -8,21 +8,7 @@ public class numberAttack : MonoBehaviour
     //볼이 안에 있을 구역을 정한다
     [SerializeField] private GameObject line;
 
-    void Awake()
-    {
-        instance = this;
-        if(instance == null)
-        {
-            instance = this;
-            DonDestroyOnLoad(this);
-        }
-
-        else
-        {
-            Destroy(this);
-        }
-    }
-
+  
     public void randomNum(string selection)
     {
         //여기서 랜덤으로 값을 받아들인다 같은 숫자는. 나올 수 없다.
