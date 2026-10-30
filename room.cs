@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Scene;
 using UnityEngine.Generic;
 
+//이 룸 파일은 아직 하얀 방 이전의 방을 나타냄
 public class room : MonoBehaviour {
     public static room instance;
 
