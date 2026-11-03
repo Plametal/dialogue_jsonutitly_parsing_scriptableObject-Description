@@ -2,9 +2,10 @@ using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
-public class messageApp : MonoBehaviour
+public class messageApp : MonoBehaviour, clickInterface
 {
     public static messageApp instance;
+    [SeirializeField] private GameObject messageArea;
     public InputField passwordInput;
     private int password = 0; //아직 미정
     
@@ -52,5 +53,10 @@ public class messageApp : MonoBehaviour
                 openNum = i;
             }
         }
+    }
+
+    public void OnClick()
+    {
+        messageArea.setActive(true);
     }
 }

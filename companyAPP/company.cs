@@ -1,17 +1,74 @@
 using UnityEngine;
 using UnityEngine.Scene;
 using UnityEngine.Generic;
-using UnityEngine.UI;
+
 public class company : MonoBehaviour {
     public static company instance;
-    [SerializeField] private gameObject computer;
-    //위에서 부터 각 버튼은 SNS, 회사 업무 일정, 업무
-    [SerializeField] private Button snsApp;
-    [SerializeField] private Button companyDate;
-    [SerializeField] private Button companyWork;
-    [SerializeField] private Button messageBox;
-    //어차피 한 번에 하나밖에 못 열기 때문에
-    public bool isOpen;
+    [SerializeField] private GameObject computer;
+    //0번 sns, 1번 date, 2번 work, 3번 message
+    [SerializeField] private GameObject[] computerApps;
+    //위에 있는 것을 클릭해서 실행시키면 해당 어플에 해당하는 내용인 밑에 있는 오브젝트가 송출되는 모습
+    //[SerializeField] private GameObject[] successApp;
+
+    //효과를 주기 위한 에셋
+    float scaleSpeed = 2f;
+    float scale = 0f;
+ 
+    void Awake()
+    {
+        if(instance == null) instance = this;
+        else Destroy(this);
+    }
+    //eventSystem에서 클릭한 부분을 처리할 예정 .  
+    public void Onclick(GameObject obj)
+    {
+        /*
+        for(int i = 0; i < computerApps.Length; i++){
+            if(obj == computerApps[i])
+            {
+                successApp[i].setActive(true);
+                scale += Time.deltaTime * scaleSpeed;
+
+                scale = Mathf.Clamp(scale, 0f, 1f);
+
+                successApp[i].localScale = Vector3.one * scale;
+            }
+        }
+        */
+        if(obj == computerApps[0])
+        {
+            snsApp.instance.snsSpace();
+            scale += Time.deltaTime * scaleSpeed;
+
+            scale = Mathf.Clamp(scale, 0f, 1f);
+
+            successApp[0].localScale = Vector3.one * scale;
+        }
+        else if(obj == computerApps[1])
+        {
+            companyDate.instance.showDate();
+            scale += Time.deltaTime * scaleSpeed;
+
+            scale = Mathf.Clamp(scale, 0f, 1f);
+
+            successApp[1].localScale = Vector3.one * scale;
+        }
+        else if(obj == computerApps[2])
+        {
+            workApp.instance.workSpace();
+            scale += Time.deltaTime * scaleSpeed;
+
+            scale = Mathf.Clamp(scale, 0f, 1f);
+
+            successApp[2].localScale = Vector3.one * scale;
+        }
+    }
+
     
+
+void Update()
+{
+    
+}
      
 }
