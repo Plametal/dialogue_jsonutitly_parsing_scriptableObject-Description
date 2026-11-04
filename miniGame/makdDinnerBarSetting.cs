@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Collections;
 using UnityEngine.UI;
 
-public class numberAttackEvent : MonoBehaviour
+public class makeDinnerSetting : MonoBehaviour
 {
     [SerializeField]private gameObject gaugeBar;
     [SerializeField]private gameObject timingBar;

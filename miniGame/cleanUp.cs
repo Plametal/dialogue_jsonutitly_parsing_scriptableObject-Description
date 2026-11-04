@@ -1,33 +1,27 @@
 using UnityEngine;
 
-public class cleanUp : MonoBehaviour
+public class cleanUp : MonoBehaviour, clickInterface
 {
     [SerializeField] private GameObject erased_Object;
     private bool isAvailable = true;
-    private void OnCollisionEnter2D(Collision2D other) {
-        if(isAvailable == true)
+    private GameObject erase;
+
+    public void onClick(GameObject erase)
+    {
+        if(this == null)
         {
-            erased_Object.a -=0.33;
+            this.erase = erase;
+        }
+    
+    }
+
+    public void OnDrag(GameObject erase)
+    {
+        if(this == null)
+        {
+            this.erase = erase;
         }
     }
-
-    private void OnCollisionExit2D(Collision2D other) {
-        isAvailable = false;    
-    }
-
-    private void eraseObject()
-    {
-        if(erased_Object.a <= 0.01)
-        {
-            erased_Object.setActive(false);
-        }
-    }
-
-    void Update()
-    {
-        eraseObject();
-    }
-
 
 
 }

@@ -1,3 +1,4 @@
 public interface clickInterface{
-    void Onclick(GameObject target);
+    void OnClick(GameObject target);
+    void OnDrag(GameObject target);
 }

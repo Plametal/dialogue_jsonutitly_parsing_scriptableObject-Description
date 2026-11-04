@@ -1,12 +1,14 @@
 using UnityEngine;
 
-public class numberAttack : MonoBehaviour
+public class companyWork : MonoBehaviour, clickInterface
 {
-    public static numberAttack instance;
+    public static companyWork instance;
     public int[] setNum;
     public GameObject ball;
     //볼이 안에 있을 구역을 정한다
     [SerializeField] private GameObject line;
+    private GameObject Instantiate_ball;
+    [SerializeField] private List<GameObject> balls = new List<GameObject>();
 
   
     public void randomNum(string selection)
@@ -37,10 +39,18 @@ public class numberAttack : MonoBehaviour
 
     private void summonBall()
     {
-        for(int i = 0; i < setNum.Length; i++)
+        
+        Instantiate_ball = Instantiate(ball, new Vector3(-line.position.x, line.position.y, 0),Quaternion.identity);
+        Instantiate_ball.transform.localScale = Vector3.one * Random.Range(0.5f, 1.5f);
+        balls.Add(Instantiate_ball);
+        
+    }
+
+    public void OnClick(GameObject target)
+    {
+        if(balls.Contains(target))
         {
-            GameObject Instantiate_ball = Instantiate(ball, (-line.position.x, line.position.y));
-            Instantiate_ball.size = Random.Range(0.5, 1.5);
+            target.SetActive(false);
         }
     }
     

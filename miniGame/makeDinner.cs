@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Collections;
 using UnityEngine.UI;
 
-public class numberAttackEvent : MonoBehaviour
+public class makeDinner : MonoBehaviour
 {
     public static makeDinner instance;
     //이게 움직이는 빨간바

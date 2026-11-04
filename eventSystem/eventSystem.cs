@@ -4,7 +4,7 @@ using UnityEngine.EventSystem;
 
 
 
-public class EventSystem : MonoBehaviour, IPointerClickHandler, IPointerDownHandler
+public class EventSystem : MonoBehaviour, IPointerClickHandler, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
     public static EventSystem instance;
     
@@ -26,6 +26,16 @@ public class EventSystem : MonoBehaviour, IPointerClickHandler, IPointerDownHand
         if (clickObj != null)
         {
             clickObj.OnClick(gameObject);
+        }
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        clickInterface clickObj = GetComponent<clickInterface>();
+
+        if (clickObj != null)
+        {
+            clickObj.OnDrag(gameObject);
         }
     }
 }

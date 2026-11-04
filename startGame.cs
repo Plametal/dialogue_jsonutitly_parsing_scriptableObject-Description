@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TmPro;
 //여기에서 하는 일은 pc의 정보를 입력하는 일이다.
 public class startMenu : MonoBehaviour
 {
