@@ -4,6 +4,7 @@ using UnityEngine;
 public class player : MonoBehaviour, collisionInterface {
     public bool isMove;    
     public static player instance;
+    //private bool isExit
 
     private void Update()
     {
@@ -12,18 +13,12 @@ public class player : MonoBehaviour, collisionInterface {
         }
     }
 
-    public void collisionEnter(Collision2D target)
-    {
-        
+    public void onCollisionEnter(Collision2D target){
+        if(target.gameObject.tag == "Item")
+        {
+            //여기 F모양 UI출력하는 걸로
+        }
     }
 
-    public void collisionExit(Collision2D target)
-    {
-        
-    }
-
-    public void collisionStay(Collision2D target)
-    {
-        
-    }
+    
 }
