@@ -5,7 +5,7 @@ using TMPro;
 public class messageApp : MonoBehaviour, clickInterface
 {
     public static messageApp instance;
-    [SeirializeField] private GameObject messageArea;
+    [SerializeField] private GameObject messageArea;
     public InputField passwordInput;
     private int password = 0; //아직 미정
     
