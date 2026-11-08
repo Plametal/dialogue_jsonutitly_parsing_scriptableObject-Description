@@ -111,4 +111,4 @@ public sealed class DialogueCommandData
     public string commandId; //어떤 커맨드를 실행할지
     public string argument;
     public float number;
-}
+} 

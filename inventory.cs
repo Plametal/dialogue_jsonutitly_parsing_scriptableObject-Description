@@ -1,57 +1,125 @@
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Generic;
-using UnityEngine.UI;
-using System.Reflection;
-public class inventory : Monobehaviour
+
+public class inventory : MonoBehaviour
 {
-    public spriteRender[] sprite;
-    //1이 없다는 것을 증명
-    private enum InventoryItem{
-        book = 1,
-        mirror = 1,
-        note = 1,
-        television = 1,
-        newspaper = 1
-
-    };
-
-    //여기에 맞게 스프라이트를 넣을 예정 -> 여기는 그냥 empty object취급임
-    public List<GameObject> InInventoryItem;
-    //몇 번째 아이템인지 확인
-    private int count = 0;
+    public SpriteRenderer[] sprite;
+    public List<GameObject> InInventoryItem = new List<GameObject>();
+    public List<int> InInventoryItemID = new List<int>();
     public static inventory instance;
-    public bool isAvailable;
     public GameObject Inventory;
+    public bool isAvailable;
 
-    void Awake(){
-        if(instance == null){
-            instance = this;
-            DonDestroyOnLoad(this);
-        }
+    private int count;
 
-        else Destroy(this);
-
-        bookImage.setActive(false);
-
-    }
-
-    void Update()
+    private void Awake()
     {
-        if (isAvailable)
+        if (instance != null && instance != this)
         {
-            Inventory.setActive(true);
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+        isAvailable = Inventory != null && Inventory.activeSelf;
+
+        foreach (GameObject slot in InInventoryItem)
+        {
+            if (slot == null)
+            {
+                continue;
+            }
+
+            SpriteRenderer slotRenderer = slot.GetComponent<SpriteRenderer>();
+            if (slotRenderer != null)
+            {
+                slotRenderer.enabled = false;
+            }
+
+            slot.SetActive(false);
         }
     }
 
-    private void check()
+    public void checkItem(int id)
     {
-        if (have_mirror) bookImage.gameObject.SetActive(true);
-        
+        if (InInventoryItemID.Contains(id))
+        {
+            Debug.Log("이미 존재하는 아이템입니다.");
+            return;
+        }
+
+        if (sprite == null || id < 0 || id >= sprite.Length || sprite[id] == null)
+        {
+            Debug.LogWarning($"유효하지 않은 아이템 ID입니다: {id}");
+            return;
+        }
+
+        if (InInventoryItem == null || count >= InInventoryItem.Count ||
+            InInventoryItem[count] == null)
+        {
+            Debug.LogWarning("사용 가능한 인벤토리 슬롯이 없습니다.");
+            return;
+        }
+
+        GameObject slot = InInventoryItem[count];
+        SpriteRenderer slotRenderer = slot.GetComponent<SpriteRenderer>();
+        if (slotRenderer == null)
+        {
+            Debug.LogWarning($"인벤토리 슬롯에 SpriteRenderer가 없습니다: {slot.name}");
+            return;
+        }
+
+        slotRenderer.sprite = sprite[id].sprite;
+        slotRenderer.enabled = true;
+        slot.SetActive(true);
+        InInventoryItemID.Add(id);
+        count++;
     }
 
-    private void touchUI()
+    public void touchUI()
     {
-        //관련된 해당 오브젝트에 대한 설명 등을 볼 수 있다.
-        //이 때 다른 행동을 취할 시에, 무조건 행동력 1소모
+        // 관련 오브젝트의 설명 표시 및 행동력 소모 처리
+    }
+
+    public void InventoryUI()
+    {
+        if (Inventory == null)
+        {
+            Debug.LogWarning("Inventory 오브젝트가 할당되지 않았습니다.");
+            return;
+        }
+
+        isAvailable = !Inventory.activeSelf;
+        Inventory.SetActive(isAvailable);
+    }
+
+    public void resetInventory()
+    {
+        InInventoryItemID.Clear();
+        count = 0;
+
+        foreach (GameObject slot in InInventoryItem)
+        {
+            if (slot == null)
+            {
+                continue;
+            }
+
+            SpriteRenderer slotRenderer = slot.GetComponent<SpriteRenderer>();
+            if (slotRenderer != null)
+            {
+                slotRenderer.enabled = false;
+                slotRenderer.sprite = null;
+            }
+
+            slot.SetActive(false);
+        }
+
+        isAvailable = false;
+        if (Inventory != null)
+        {
+            Inventory.SetActive(false);
+        }
     }
 }
