@@ -102,22 +102,25 @@ normal ending2 - 나약한 영웅
 
 
 sudo apt-get update && sudo apt-get install -y dotnet-sdk-8.0
-ㄹ야ㄴ - ..........니얄라니얄라
+
+
+**특별하게 행동력과 관련된 언급이 없는 경우 무조건 행돌력 1을 기본적으로 소모한다**
 
 각 Item관련해서 상호 작용 하는 방식
 ****1.벽면 거울(mirror.cs)
 -역할
 1. 11번(책상) 오브젝트에서 손거울을 습득한 뒤로 특별한 상호 작용이 가능하다
 2. 1번의 상황 외에는 모두 그냥 자신의 외모한 관찰할 수 없다.(그렇다 해도 딱히 확인 가능한 요소는 없음)
-3. 모든 상호 작용에는 행동력이 든다.
+3. 
 
 **2.책장(WhiteRoomBookShelf.cs)
--1.책
--2.사진첩
--3.졸업장
+-책
+-사진첩
+-졸업장
+-노트
 
 -역할
-1.
+1.사진첩 졸업장 관련해서는 미정
 2.
 3.
 
@@ -127,10 +130,10 @@ sudo apt-get update && sudo apt-get install -y dotnet-sdk-8.0
 2.
 3.
 
-4.전등(looplight.cs)
+4.전등(looplight.cs / switch.cs)
 -역할
-1.
-2.
+1.스위치 on / off를 통해서 모든 object의 색깔이 inverse됨
+2.딱히 역할은 없으며, 의미 부여하는 데에만 사용함
 3.
 
 

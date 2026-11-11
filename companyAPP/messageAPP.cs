@@ -5,7 +5,7 @@ using TMPro;
 public class messageApp : MonoBehaviour, clickInterface
 {
     public static messageApp instance;
-    [SerializeField] private GameObject messageArea;
+    public GameObject messageArea;
     public InputField passwordInput;
     private int password = 0; //아직 미정
     
@@ -55,8 +55,10 @@ public class messageApp : MonoBehaviour, clickInterface
         }
     }
 
-    public void OnClick()
+    public void showMessageArea(float scale)
     {
         messageArea.setActive(true);
+        scale = Mathf.Clamp(scale, 0f, 1f);
+        messageArea.localScale = Vector3.one * scale;
     }
 }

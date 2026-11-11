@@ -2,7 +2,7 @@ using UnityEngine;
 public class companyDate : MonoBehaviour, clickInterface
 {
     public static companyDate instance;
-    [SerializeField] private GameObject dateObj;
+    public GameObject dateObj;
     void Awake()
     {
         if(instance == null) instance = this;
@@ -12,10 +12,13 @@ public class companyDate : MonoBehaviour, clickInterface
     }
 
     //간단한 달력 제작
-    private void showDate()
+    public void showDate(float scale)
     {
         dateObj.setActive(true);
+
+        dateObj.localScale = Vector3.one * scale;
     }
+    
 
     
 }

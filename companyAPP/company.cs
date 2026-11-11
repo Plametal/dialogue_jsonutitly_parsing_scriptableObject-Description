@@ -20,47 +20,33 @@ public class company : MonoBehaviour {
         else Destroy(this);
     }
     //eventSystem에서 클릭한 부분을 처리할 예정 .  
-    public void Onclick(GameObject obj)
+    public void OnClick(GameObject obj)
     {
-        /*
-        for(int i = 0; i < computerApps.Length; i++){
-            if(obj == computerApps[i])
-            {
-                successApp[i].setActive(true);
-                scale += Time.deltaTime * scaleSpeed;
+        scale += Time.deltaTime * scaleSpeed;
 
-                scale = Mathf.Clamp(scale, 0f, 1f);
-
-                successApp[i].localScale = Vector3.one * scale;
-            }
-        }
-        */
+        
+        //sns
         if(obj == computerApps[0])
         {
-            snsApp.instance.snsSpace();
-            scale += Time.deltaTime * scaleSpeed;
-
-            scale = Mathf.Clamp(scale, 0f, 1f);
-
-            successApp[0].localScale = Vector3.one * scale;
+            snsApp.instance.snsSpace(scale);
         }
+        //date
         else if(obj == computerApps[1])
         {
-            companyDate.instance.showDate();
-            scale += Time.deltaTime * scaleSpeed;
+            companyDate.instance.showDate(scale);
 
-            scale = Mathf.Clamp(scale, 0f, 1f);
-
-            successApp[1].localScale = Vector3.one * scale;
         }
+        
+        //work
         else if(obj == computerApps[2])
         {
-            workApp.instance.workSpace();
-            scale += Time.deltaTime * scaleSpeed;
+            workApp.instance.workSpace(scale);
+        }
 
-            scale = Mathf.Clamp(scale, 0f, 1f);
-
-            successApp[2].localScale = Vector3.one * scale;
+        //message
+        else if(obj == computerApps[3])
+        {
+            messageApp.instance.messageSpace(scale);
         }
     }
 

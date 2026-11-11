@@ -38,5 +38,9 @@ public class UiManager : Monobehaviour
         }
     }
 
+    public void moveCheck()
+    {
+        
+    }
 
 }

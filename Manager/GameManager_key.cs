@@ -44,18 +44,33 @@ public class GameManager_key : Monobehaviour
             !inventory.instance.isAvailable;     
         }
         //여기는 회사와 관련된 부분입니다
-        if(scene.name == "" && company.instance.isOpen)
-        {
-            if (Input.GetKeyDown("ESC"))
-            {
-                //아니 강제 종료(딱히 안 해도 상관없기는 함 -> 그 대신 특별한 텍스트가 나오도록 
-            }
-        }
 
-        if(scene.name == "" && messageApp.instance.openNum != null)
+        if(scene.name == "company")
         {
-            if(Input.GetKeyDown("ESC")){
-                messageApp.instance.textSession[messageApp.instance.openNum] = null;
+            if(Input.GetKeyDown(keyCode.Escape)){
+                if (messageApp.instance.messageArea.activeSelf)
+                {
+                    messageArea.setActive(false);
+                    return;
+                }
+                
+
+                if (companyDate.instance.dateObj.activeSelf)
+                {
+                    companyDate.instance.dateObj.setActive(false);
+                    return;
+                }
+
+                if (snsApp.instance.snsArea.activeSelf)
+                {
+                    snsApp.instance.snsArea.setActive(false);
+                    return;
+                }
+
+                if (workApp.instance.workArea.activeSelf)
+                {
+                    workApp.instance.workArea.setActive(false);
+                }
                 //그리고 글 표시한 오브젝트도 엑티브 false
             }
         }

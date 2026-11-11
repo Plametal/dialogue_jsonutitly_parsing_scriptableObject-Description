@@ -4,8 +4,8 @@ using UnityEngine.Generic;
 using UnityEngine.SpriteRenderer;
 using UntiyEngine.UI;
 
-public class reverseColor : MonoBehaviour {
-    public static reverseColor instance;
+public class lightSwitch : MonoBehaviour {
+    public static lightSwitch instance;
     public SpriteRender[] blackOne;
     public SpriteRender[] whiteOne;
     public gameObject[] Objects;
