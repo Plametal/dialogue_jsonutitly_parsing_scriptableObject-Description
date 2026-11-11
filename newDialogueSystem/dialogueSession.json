@@ -1,0 +1,76 @@
+{
+  "dialogues": [
+    {
+      "dialogueId": "mirror",
+      "speakers": [],
+      "texts": [],
+      "selection" : []
+    },
+    {
+      "dialogueId": "bookShelf",
+      "speakers": [],
+      "texts": [],
+      "selection" : []
+    },
+    {
+      "dialogueId": "exit",
+      "speakers": [],
+      "texts": [],
+      "selection" : []
+    },
+    {
+      "dialogueId": "loopLight",
+      "speakers": [],
+      "texts": [],
+      "selection" : []
+    },
+    {
+      "dialogueId": "wide_window",
+      "speakers": [],
+      "texts": [],
+      "selection" : []
+    },
+    {
+      "dialogueId": "hobby",
+      "speakers": [],
+      "texts": [],
+      "selection" : []
+    },
+    {
+      "dialogueId": "toilet",
+      "speakers": [],
+      "texts": [],
+      "selection" : []
+    },
+    {
+      "dialogueId": "bed",
+      "speakers": [],
+      "texts": [],
+      "selection" : []
+    },
+    {
+      "dialogueId": "livingRoom",
+      "speakers": [],
+      "texts": [],
+      "selection" : []
+    },
+    {
+      "dialogueId": "presentBox",
+      "speakers": [],
+      "texts": [],
+      "selection" : []
+    },
+    {
+      "dialogueId": "desk",
+      "speakers": [],
+      "texts": [],
+      "selection" : []
+    },
+    {
+      "dialogueId": "table",
+      "speakers": [],
+      "texts": [],
+      "selection" : []
+    }
+  ]
+}
