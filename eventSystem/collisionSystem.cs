@@ -8,6 +8,7 @@ public class collisionSystem : MonoBehaviour, collisionInterface
         if(collisionInterface != null)
         {
             collisionInterface.collisionEnter(target.gameObject);
+            DialogueBoxSetting.instance.StartInteraction();
         }
     }
 

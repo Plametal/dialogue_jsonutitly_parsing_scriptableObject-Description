@@ -42,6 +42,7 @@ public class DialogueText
 public class SelectionText
 {
     public string maxActivation; //여기는 행동력
+    public string first; //여기서 확인을 한 번 했는지 확인 -> 조사한다와 관련있기 때문
     public List<string> choiceText; //선택지에 관한 택스트
     public List<string> selectionResult;
     //public string choiceNode; //행동력과 관련이 되어 있는지 확인
